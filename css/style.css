@@ -1,4 +1,66 @@
-body{
-    background-color: #2e3248;
-    
-}
+ #addTaskdiv{
+         display: none;
+         padding: 5px;
+         float: left;
+         width: 45%;
+         height: 400px;
+         background: #E0DD53;
+         margin-bottom: 30px;
+         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+                 
+
+     }
+     
+      #tasksDoing{
+         display: none;
+         padding: 5px;
+         width: 60%;
+         height: 200px;
+         background: #9BB5EF;
+         border-left-width: 2px;
+         border-right-width: 2px;
+         border-bottom: 4px;
+          box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+         
+         
+     }
+    #tasksCompleted{
+    position: fixed;
+    display: none;
+    float: right;
+    margin-left: 20%;
+    height: 500;
+    padding: 5px;
+    width: 30%;
+    background: #95F398;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+         
+     }
+     
+     
+     #addTaskdiv input{
+         padding: 5px;
+     }
+    .item{
+         width: 130px;
+         height: 30px;
+         font-size: 14px;
+         color: whitesmoke;
+         border-color: chocolate;
+         background-color: #2e3246;
+         padding-left: 8px;
+         border-radius: 10px;
+         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+         
+     }
+     .largebtn{
+         height: 400px;
+         width: 400px;
+         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+         
+     }
+     
+     .wrapper{
+         display: flex;
+     }
+     

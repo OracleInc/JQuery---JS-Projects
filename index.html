@@ -8,102 +8,34 @@
 <body>
     
  <style>
-     #addTaskdiv{
-         display: none;
-         padding: 5px;
-         float: left;
-         width: 39%;
-         height: 200px;
-         background: #E0DD53;
-         margin-bottom: 30px;
-         
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-         
-     }
-     
-      #tasksDoing{
-         display: none;
-         padding: 5px;
-         width: 60%;
-         height: 200px;
-         background: #9BB5EF;
-         border-left-width: 2px;
-         border-right-width: 2px;
-         border-bottom: 4px;
-         
-         
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-         
-     }
-           #tasksCompleted{
-          position: fixed;
-         display: none;
-         float: right;
-        margin-left: 20%;
-        height: 500;
-         padding: 5px;
-         width: 30%;
-         background: #95F398;
-         
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-         
-     }
-     
-     
-     #addTaskdiv input{
-         padding: 5px;
-     }
-    .draggable{
-         width: 80px;
-         height: 30px;
-         font-size: 15px;
-         color: whitesmoke;
-         border-color: chocolate;
-         background-color: #2e3246;
-         padding-left: 8px;
-         border-radius: 20px;
-         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
-         
-     }
-     .largebtn{
-         height: 400px;
-         width: 400px;
-     }
-     
-     .wrapper{
-         display: flex;
-     }
-     
+    
  </style>
   <div class="container">
  <center><h4> ToDo App </h4></center>
   
-  <center><button class="largebtn btn btn-primary glyphicon glyphicon-plus" id="addTaskbtn">Add Task</button></center>
+  <center><button class="largebtn btn btn-primary glyphicon glyphicon-forward" id="addTaskbtn">Get Started</button></center>
     <div class="wrapper">
         <div id="addTaskdiv">
+             Task:<div id="inputBox"><input id="newTask"/>
+            <button class="btn btn-success " onclick="createDraggable()" style="margin-left:30px">Add</button>
             
-            <div id="inputBox">
-            <input id="newTask" /><button class="btn btn-success " onclick="createDraggable()">Add</button>
+            <hr>
             </div>  
         </div>
         <div class=" panel panel-success" id="tasksCompleted">
                 <label><h3>Completed Tasks</h3></label>
+                <hr>
                 <p></p> 
             <div id="drag">
-        <p>Drag me to my target</p>
+        <p>Eating Banku</p>
     </div>
             
         </div>
    </div>
      
         <div class="panel panel-info" id="tasksDoing">
-                <h3 id="inprog">Drop tasks in progress here</h3>
+                <h4 id="inprog">Drop tasks in progress here</h4>
+                <hr>
                 <p></p>
            
         </div>
@@ -113,6 +45,9 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   <script>
   $(document).ready(function(){
   //console.log("Jquery is loaded")
+  //$( "#datepicker" ).datepicker()
+  $( "#drag" ).draggable({ revert: "valid" })
+  $("newTask").prop('required',true)
   $("#apptitle").toggle("fade")
         $("#addTaskbtn").click(function(){
         $("#addTaskbtn").toggle("explode")
@@ -122,23 +57,20 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
         
          })
   })
-
-           
-     $( "#drag" ).draggable({ revert: "valid" })
-      $(".dropp").droppable({
+       $(".dropp").droppable({
           //console.log("I am droppable")
           activeClass: "container",
           hoverClass: "ui-state-hover",
           drop: function( event, ui ) {
         $(this).addClass( "ui-state-highlight" )
-          .find( "p" ).html( "Added!" );
+          .find( "p" ).html( "Added!" )
             }
-   
-  })
+   })
       function createDraggable(){
-      console.log("I will create a draggable")
+      //console.log("I will create a draggable")
       var value = $("#newTask").val()
-      $("#addTaskdiv").append($("<div><p class='ui-widget-content' id='drag'>"+value+"</p></div>"))
+      $("#addTaskdiv").append($("<div class='item' id='drag'><p>"+value+"</p></div>"))
+      $( "#drag" ).draggable()
     
      }
 
