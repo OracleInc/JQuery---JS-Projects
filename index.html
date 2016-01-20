@@ -26,9 +26,10 @@
                 <label><h3>Completed Tasks<img src="img/tick.png" style="margin-left:15px;width:30px; height:30px;"/></h3></label>
                 <hr>
                 <p></p> 
-            <div id="drag">
-        <p>Eating Banku</p>
+            <div id="drag" class="item">
+        <p>Buy clothes at Makola</p>
     </div>
+    
   </div>
    </div>
      
@@ -71,6 +72,7 @@
       var value = $("#newTask").val()
       $("#addTaskdiv").append($("<div class='item' id='drag"+id+"'><p>"+value+"</p></div>"))
       $( "#drag"+id+"" ).draggable()
+      //$( "#drag"+id+"" ).dblclick().remove()
     
      }
 
