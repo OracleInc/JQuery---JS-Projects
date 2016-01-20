@@ -16,25 +16,24 @@
   <center><button class="largebtn btn btn-primary glyphicon glyphicon-forward" id="addTaskbtn">Get Started</button></center>
     <div class="wrapper">
         <div id="addTaskdiv">
-             Task:<div id="inputBox"><input id="newTask"/>
+             Task:<div id="inputBox" ><input id="newTask" placeholder="Type task and click add "/>
             <button class="btn btn-success " onclick="createDraggable()" style="margin-left:30px">Add</button>
             
             <hr>
             </div>  
         </div>
-        <div class=" panel panel-success" id="tasksCompleted">
-                <label><h3>Completed Tasks</h3></label>
+        <div id="tasksCompleted">
+                <label><h3>Completed Tasks<img src="img/tick.png" style="margin-left:15px;width:30px; height:30px;"/></h3></label>
                 <hr>
                 <p></p> 
             <div id="drag">
         <p>Eating Banku</p>
     </div>
-            
-        </div>
+  </div>
    </div>
      
-        <div class="panel panel-info" id="tasksDoing">
-                <h4 id="inprog">Drop tasks in progress here</h4>
+        <div id="tasksDoing">
+                <h4 id="inprog">Drop tasks in progress here<img src="img/gears.gif" style="margin-left:15px;width:50px; height:50px;"/></h4>
                 <hr>
                 <p></p>
            
@@ -68,9 +67,10 @@
    })
       function createDraggable(){
       //console.log("I will create a draggable")
+      var id = Math.floor(Math.random() * 50) + 1 
       var value = $("#newTask").val()
-      $("#addTaskdiv").append($("<div class='item' id='drag'><p>"+value+"</p></div>"))
-      $( "#drag" ).draggable()
+      $("#addTaskdiv").append($("<div class='item' id='drag"+id+"'><p>"+value+"</p></div>"))
+      $( "#drag"+id+"" ).draggable()
     
      }
 

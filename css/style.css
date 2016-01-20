@@ -25,7 +25,7 @@
          
      }
     #tasksCompleted{
-    position: fixed;
+
     display: none;
     float: right;
     margin-left: 20%;
@@ -42,14 +42,15 @@
          padding: 5px;
      }
     .item{
-         width: 130px;
+         width: 170px;
          height: 30px;
          font-size: 14px;
          color: whitesmoke;
          border-color: chocolate;
          background-color: #2e3246;
          padding-left: 8px;
-         border-radius: 10px;
+         padding-top: 3px;
+         border-radius: 3px;
          box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
          
      }
