@@ -12,9 +12,10 @@
          display: none;
          padding: 5px;
          float: left;
-         width: 30%;
+         width: 39%;
          height: 200px;
-         background: #eee;
+         background: #E0DD53;
+         margin-bottom: 30px;
          
 -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -25,9 +26,13 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
       #tasksDoing{
          display: none;
          padding: 5px;
-         width: 30%;
+         width: 60%;
          height: 200px;
-         background: #eee;
+         background: #9BB5EF;
+         border-left-width: 2px;
+         border-right-width: 2px;
+         border-bottom: 4px;
+         
          
 -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -35,11 +40,14 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
          
      }
            #tasksCompleted{
+          position: fixed;
          display: none;
+         float: right;
+        margin-left: 20%;
+        height: 500;
          padding: 5px;
          width: 30%;
-         height: 200px;
-         background: #eee;
+         background: #95F398;
          
 -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -84,24 +92,23 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
             <input id="newTask" /><button class="btn btn-success " onclick="createDraggable()">Add</button>
             </div>  
         </div>
-  
-        <div class=" dropp panel panel-info" id="tasksDoing">
-                <label>Drop tasks here</label>
-                <p></p>
-           
-        </div>
-     
-
         <div class=" panel panel-success" id="tasksCompleted">
-                 <div id="inputBox">
-            <input id="newTask" /><button class="btn btn-success " onclick="createDraggable()">Add</button>
-            </div> 
+                <label><h3>Completed Tasks</h3></label>
+                <p></p> 
             <div id="drag">
         <p>Drag me to my target</p>
     </div>
             
         </div>
-   </div>     
+   </div>
+     
+        <div class="panel panel-info" id="tasksDoing">
+                <h3 id="inprog">Drop tasks in progress here</h3>
+                <p></p>
+           
+        </div>
+   
+        
    </div>
   <script>
   $(document).ready(function(){
