@@ -72,7 +72,9 @@
       var value = $("#newTask").val()
       $("#addTaskdiv").append($("<div class='item' id='drag"+id+"'><p>"+value+"</p></div>"))
       $( "#drag"+id+"" ).draggable()
-      //$( "#drag"+id+"" ).dblclick().remove()
+      $( "#drag"+id+"" ).on('dblclick', function() {
+        $( "#drag"+id+"" ).remove()
+        })
     
      }
 
