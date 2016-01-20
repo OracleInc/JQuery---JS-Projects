@@ -11,7 +11,6 @@
      #addTaskdiv{
          display: none;
          padding: 5px;
-         float: left;
          width: 30%;
          height: 200px;
          background: #eee;
@@ -34,25 +33,13 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
          
      }
-           #tasksCompleted{
-         display: none;
-         padding: 5px;
-         width: 30%;
-         height: 200px;
-         background: #eee;
-         
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-         
-     }
      
      
      #addTaskdiv input{
          padding: 5px;
      }
     .draggable{
-         width: 80px;
+         width: 100px;
          height: 30px;
          font-size: 15px;
          color: whitesmoke;
@@ -67,9 +54,13 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
          height: 400px;
          width: 400px;
      }
-     
-     .wrapper{
-         display: flex;
+     .tasksDoing{
+         width: 33%;
+         
+     }
+     .tasksCompleted{
+         width: 33%;
+         
      }
      
  </style>
@@ -77,64 +68,62 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
  <center><h4> ToDo App </h4></center>
   
   <center><button class="largebtn btn btn-primary glyphicon glyphicon-plus" id="addTaskbtn">Add Task</button></center>
-    <div class="wrapper">
-        <div id="addTaskdiv">
-            
-            <div id="inputBox">
-            <input id="newTask" /><button class="btn btn-success " onclick="createDraggable()">Add</button>
-            </div>  
-        </div>
-  
-        <div class=" dropp panel panel-info" id="tasksDoing">
-                <label>Drop tasks here</label>
-                <p></p>
-           
-        </div>
+  <div id="addTaskdiv">
      
+    <div id="inputBox">
+    <input id="newTask" /><button class="btn btn-success " onclick="say()">Add</button>
+        
+  </div>
+  
+   <div class="tasksDoing panel panel-info">
+       
+       </div>
+     
+ </div>
+  <div class="tasksCompleted panel panel-success">
+     
+ </div>
+ <div>
 
-        <div class=" panel panel-success" id="tasksCompleted">
-                 <div id="inputBox">
-            <input id="newTask" /><button class="btn btn-success " onclick="createDraggable()">Add</button>
-            </div> 
-            <div id="drag">
-        <p>Drag me to my target</p>
-    </div>
-            
-        </div>
-   </div>     
-   </div>
+
+  </div>
   <script>
   $(document).ready(function(){
   //console.log("Jquery is loaded")
-  $("#apptitle").toggle("fade")
-        $("#addTaskbtn").click(function(){
-        $("#addTaskbtn").toggle("explode")
-        $("#addTaskdiv").toggle("fade",3000)
-        $("#tasksDoing").toggle("fade",3000)
-        $("#tasksCompleted").toggle("fade",3000)
-        
-         })
-  })
-
-           
-     $( "#drag" ).draggable({ revert: "valid" })
-      $(".dropp").droppable({
-          //console.log("I am droppable")
-          activeClass: "container",
-          hoverClass: "ui-state-hover",
-          drop: function( event, ui ) {
-        $(this).addClass( "ui-state-highlight" )
-          .find( "p" ).html( "Added!" );
-            }
-   
-  })
+  function say(){
+      console.log("hi")
+  }
       function createDraggable(){
       console.log("I will create a draggable")
       var value = $("#newTask").val()
-      $("#addTaskdiv").append($("<div><p class='ui-widget-content' id='drag'>"+value+"</p></div>"))
+      $("#addTaskdiv").append($("<div><p class='draggable' id= 'dropp'>"+value+"</p></div>"))
     
      }
-
+  
+  $("#apptitle").toggle("fade")
+        $("#addTaskbtn").click(function(){
+        $("#addTaskbtn").toggle("explode")
+        $("#addTaskdiv").toggle("fade", 3000)
+        
+         })
+     $("#moveTask").click(function(){
+      $("div").append("This is the div")
+      })
+      
+     
+     $( "#dropp" ).draggable({ revert: "valid" })
+      $("#dropp").droppable({
+          //console.log("I am droppable")
+          activeClass: "ui-state-default",
+          hoverClass: "ui-state-hover",
+          drop: function( event, ui ) {
+        $(this).addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+            }
+      })
+  })
+  
   </script> 
   
   </body>

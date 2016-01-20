@@ -1,0 +1,91 @@
+<html>
+<head>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/jqueryui.min.js"></script>
+</head>
+<body>
+    
+ <style>
+     #addTaskdiv{
+         display: none;
+         padding: 5px;
+         width: 40%;
+         height: 200px;
+         background: #eee;
+         
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+         
+     }
+     
+     #addTaskdiv input{
+         padding: 5px;
+     }
+    .draggable{
+         width: 100px;
+         height: 30px;
+         font-size: 15px;
+         color: whitesmoke;
+         border-color: chocolate;
+         background-color: #2e3246;
+         padding-left: 8px;
+         border-radius: 20px;
+         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+         
+     }
+     .largebtn{
+         height: 400px;
+         width: 400px;
+     }
+ </style>
+  <div class="container">
+ <center><h4> ToDo App </h4></center>
+  
+  <center><button class="largebtn btn btn-primary" id="addTaskbtn">Add Task</button></center>
+  <div id="addTaskdiv">
+     
+            <div id="inputBox">
+            <input id="newTask" /><button class="btn btn-success glyphicon glyphicon-plus" onclick="createDraggable()" style="margin-left:12px;">Add</button>
+        
+  </div>
+  
+ <div class="Doing"></div>
+ <div>
+
+
+  </div>
+  <script>
+  $(document).ready(function(){
+  //console.log("Jquery is loaded")
+  $("#apptitle").toggle("pulsate", 4000)
+        $("#addTaskbtn").click(function(){
+        $("#addTaskbtn").toggle("explode")
+        $("#addTaskdiv").toggle("fade", 3000)
+        
+         })
+        
+    }) 
+  
+  $
+  $("#moveTask").click(function(){
+      $("div").append("This is the div")
+  })
+  function createDraggable(){
+      console.log("I will create a draggable")
+      var value = $("#newTask").val()
+      $("#addTaskdiv").append($("<div><p class='draggable'>"+value+"</p></div>"))
+     
+         
+  }
+  function drop(){
+      $("#addTaskdiv").droppable(function(){
+          console.log("tried to drop")
+      })
+  }
+  </script> 
+  
+  </body>
+</html>
