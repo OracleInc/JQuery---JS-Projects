@@ -1,10 +1,11 @@
  #addTaskdiv{
          display: none;
+         margin: 20px;
          padding: 5px;
          float: left;
-         width: 40%;
+         width: 30%;
          height: 300px;
-         background: #E0DD53;
+         background: #B1E6E4;
          margin-bottom: 30px;
          box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
                  
@@ -14,9 +15,10 @@
       #tasksDoing{
          display: none;
          padding: 5px;
-         width: 100%;
+         margin: 20px;
+         width: 30%;
          height: 200px;
-         background: #9BB5EF;
+         background: #F77C80;
          border-left-width: 2px;
          border-right-width: 2px;
          border-bottom: 4px;
@@ -27,13 +29,14 @@
     #tasksCompleted{
 
     display: none;
+    margin: 20px;
     margin-left: 30px;
     float: right;
-    margin-left: 30%;
+    margin-left: 0%;
     height: 300px;
     padding: 5px;
     width: 30%;
-    background: #95F398;
+    background: #CDF558;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
          
      }
@@ -94,7 +97,7 @@
  * Card component
  */
 .card {
-    background-color: #F7F7F7;
+    background-color: papayawhip;
     /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
@@ -103,9 +106,9 @@
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
 }
 
 .profile-img-card {
@@ -215,6 +218,10 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 .imageClass{
     float: left;
+    margin-top: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 2px;
     display: flex;    
 }
 #profilecredentials{

@@ -10,7 +10,7 @@
     <div class="container-fluid">
       <div class="container">
        <div class="navbar-header">
-         <a class="navbar-brand" href="#">toDo App Mega X</a>
+         <a class="navbar-brand" href="#">ToDo App Mega X</a>
        </div>
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -18,26 +18,14 @@
           <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" id="menuBarInfo">
-
-          
-        </ul>
+       </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 
   <div class="container">
  <center><h4> ToDo App </h4></center>
-  
-    <div class="wrapper">
-        
-        <!--menu Bar-->
- 
-        
-        <!--
-    This is the login part   
-  -->
-
-        
+      <div class="wrapper">
         <div class="card card-container" id="panel">
             <img id="profile-img" class="profile-img-card" src="http://findicons.com/files/icons/1072/face_avatars/300/i04.png" />
             <p id="profile-name" class="profile-name-card"></p>
@@ -57,64 +45,68 @@
             </a>
         </div><!-- /card-container -->
    <!-- login end -->
-        
-        
-        
-        <div id="addTaskdiv">
+       <div id="addTaskdiv" class="dropp">
              Task:<div id="inputBox" ><input id="newTask" placeholder="Type task and click add "/>
             <button class="btn btn-success " onclick="createDraggable()" style="margin-left:30px">Add</button>
             <label>Double click on a task to delete</label>
             <hr>
             </div>  
         </div>
-        <div id="tasksCompleted">
+        <div id="tasksDoing" class="dropp">
+                <h4 id="inprog">Drop tasks in progress here<img src="img/gears.gif" style="margin-left:15px;width:50px; height:50px;"/></h4>
+                <hr>
+                <p></p>
+          </div>
+          
+        <div id="tasksCompleted" class="dropp">
                 <label><h3>Completed Tasks<img src="img/tick.png" style="margin-left:15px;width:30px; height:30px;"/></h3></label>
                 <hr>
                 <p></p> 
             <div id="drag" class="item">
         <p>Buy clothes at Makola</p>
     </div>
-    
   </div>
    </div>
-     
-        <div id="tasksDoing">
-                <h4 id="inprog">Drop tasks in progress here<img src="img/gears.gif" style="margin-left:15px;width:50px; height:50px;"/></h4>
-                <hr>
-                <p></p>
-           
-        </div>
-   
         
-   </div>
+    </div>
   <script>
   $(document).ready(function(){
   //console.log("Jquery is loaded")
   //$( "#datepicker" ).datepicker()
-  $( "#drag" ).draggable({ revert: "valid" })
+  $( "#drag" ).draggable({ revert: "invalid" })
   $("newTask").prop('required',true)
   $("#apptitle").toggle("fade")
         $("#addTaskbtn").click(function(){
+            
       var username = $("#inputEmail").val()
+      var password = $("#inputPassword").val()
+      if(username === "" ){
+          $("<p> Username cannot be blank</p>").insertAfter($("#profile-img")).toggle("fade",3000)
+          return false
+      }
+      if(password === "" ){
+          $("<p> Password cannot be blank</p>").insertAfter($("#profile-img")).toggle("fade",3000)
+          return false
+      }
         
         $("#addTaskbtn").toggle("explode")
         $("#addTaskbtn").toggle("explode")
-        $("#panel").toggle("fade")
-        $("#addTaskdiv").toggle("fade",3000)
+        $("#panel").toggle("explode")
+        $("#addTaskdiv").toggle("fade",3000).css('display','inline-table')
         $("#menuBar").toggle("fade",3000)
-        $("#menuBarInfo").append("<li class='btn-bb'><a href='#'>You are signed in as "+username+"</a></li>")
+        $("#menuBarInfo").append("<li><img id='profile-img' class='imageclass' src='http://findicons.com/files/icons/1072/face_avatars/300/i04.png'/></li><li class='btn-bb'><a href='#'>You are signed in as: "+username+"</a></li>")
         $("#tasksDoing").toggle("fade",3000)
         $("#tasksCompleted").toggle("fade",3000)
         
          })
   })
        $(".dropp").droppable({
-          //console.log("I am droppable")
-          activeClass: "container",
+          //console.log("I am a droppable")
+          activeClass: "ui-state-default",
           hoverClass: "ui-state-hover",
           drop: function( event, ui ) {
         $(this).addClass( "ui-state-highlight" )
-          .find( "p" ).html( "Added!" )
+          .find( "p" )
             }
    })
       function createDraggable(){
@@ -122,7 +114,7 @@
       var id = Math.floor(Math.random() * 50) + 1 
       var value = $("#newTask").val()
       $("#addTaskdiv").append($("<div class='item' id='drag"+id+"'><p>"+value+"</p></div>"))
-      $( "#drag"+id+"" ).draggable()
+      $( "#drag"+id+"" ).draggable({ revert: "invalid" })
       $( "#drag"+id+"" ).on('dblclick', function() {
         $( "#drag"+id+"" ).remove()
         })
